@@ -156,7 +156,22 @@ Follow the steps below to reproduce the Python and R environments and pull the r
     ollama ps
     ```
 
-# Package and model reference
+# How to Update Python dependencies
+1. Modify the `requirements.in` file
+To update the Python dependencies, edit the [`requirements.in`](./requirements.in) file in the project root. This file lists the top-level dependencies for the project. 
+
+2. Generate `requirements.txt` files for each platform
+To generate the `requirements.txt` files for each platform, run the following commands in the terminal from the project root:
+
+```bash
+# macOS
+uv pip compile requirements.in  --python-version 3.8.18 --python-platform macos --no-annotate --no-header -o requirements_macos.txt
+
+# Windows
+uv pip compile requirements.in  --python-version 3.8.18 --python-platform windows --no-annotate --no-header -o requirements.txt
+```
+
+# Package and Model Reference
 ## Python packages
 See file [requirements.in](./requirements.in).
 
@@ -170,14 +185,3 @@ See file [requirements.in](./requirements.in).
 - `qwen2.5-coder:7b`
 - `qwen2.5-coder:14b`
 - `gpt-oss:20b`
-
-# Additional notes
-To generate the `requirements.txt` files for each platform, run the following commands in the terminal from the project root:
-
-```bash
-# macOS
-uv pip compile requirements.in  --python-version 3.8.18 --python-platform macos --no-annotate --no-header -o requirements_macos.txt
-
-# Windows
-uv pip compile requirements.in  --python-version 3.8.18 --python-platform windows --no-annotate --no-header -o requirements.txt
-```
