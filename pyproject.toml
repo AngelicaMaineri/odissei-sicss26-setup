@@ -1,0 +1,127 @@
+[project]
+name = "odissei-sicss26-setup"
+version = "0.1.0"
+description = "Python environment for ODISSEI SICSS 2026"
+readme = "README.md"
+requires-python = ">3.8.17,<3.8.19"
+dependencies = [
+    # essential scientific/statistical stack
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    "statsmodels",
+    "pyarrow",
+    "openpyxl",
+    "xlrd",
+
+    # advanced statistical modeling
+    "pingouin",
+    "factor-analyzer",
+    "semopy",
+    "lifelines",
+    "bambi",
+
+    # causal inference
+    "dowhy",
+    "econml",
+    "causal-learn",
+
+    # Bayesian statistics
+    "pymc",
+    "arviz",
+
+    # alternative dataframe engines and analytical databases
+    "polars",
+
+    # data reading, processing, and cleaning
+    "pyreadstat",
+    "python-dotenv",
+    "tabulate",
+    "missingno",
+    "skimpy",
+    "tqdm",
+
+    # machine learning and model management
+    "joblib",
+    "threadpoolctl",
+    "imbalanced-learn",
+    "xgboost",
+    "lightgbm",
+    "mlflow",
+
+    # text analysis and NLP
+    "nltk",
+    "spacy",
+    "transformers",
+    "sentence-transformers",
+    "datasets",
+    "evaluate",
+    "bertopic",
+    "umap-learn",
+    "hdbscan",
+
+    # LLMs and AI-assisted analysis
+    "langchain",
+    "langchain-community",
+    "langchain-huggingface",
+    "langchain-ollama",
+    "langchain-openai",
+    "pydantic",
+
+    # inter-rater reliability and annotation
+    "krippendorff",
+
+    # network analysis
+    "networkx",
+
+    # visualization
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    "altair",
+    "plotnine",
+    "kaleido",
+
+    # notebooks and interactive computing
+    "jupyterlab",
+    "notebook",
+    "ipykernel",
+    "IPython",
+    "nbformat",
+    "nbconvert",
+    "jupytext",
+    "papermill",
+
+    # geospatial data processing
+    "geopandas",
+    "shapely",
+    "fiona",
+    "pyogrio",
+    "pyproj",
+
+    # geospatial visualization
+    "cartopy",
+    "folium",
+    "contextily",
+
+    # spatial analysis and spatial econometrics
+    "pysal",
+    "libpysal",
+    "esda",
+    "spreg",
+
+    # software development and reproducibility
+    "black",
+    "ruff",
+    "pre-commit",
+    "pytest",
+
+    # documentation and publishing
+    "quarto",
+    "jupyter-book",
+    "sphinx-book-theme",
+    "myst_parser",
+    "beautifulsoup4",
+    "packaging",
+]
