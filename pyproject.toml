@@ -21,6 +21,7 @@ dependencies = [
     "semopy",
     "lifelines",
     "bambi",
+    "ppi-python",
 
     # causal inference
     "dowhy",

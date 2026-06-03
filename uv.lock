@@ -1380,6 +1380,21 @@ http = [
 ]
 
 [[package]]
+name = "gdown"
+version = "5.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "beautifulsoup4" },
+    { name = "filelock" },
+    { name = "requests", extra = ["socks"] },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5d/e2/831920e510e3cce91627adab9997944b32842f7cd0dc4c023f24655531e0/gdown-5.2.2.tar.gz", hash = "sha256:a4bafbaa627d67bdaa68d274e9e957127ba810b4bcf4505e2b57ea45aa0aa1e6", size = 360218, upload-time = "2026-04-12T06:00:10.571Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/ad/0e30d078a2cc84a17a81c0a1f226d617edf12ddd375dafe021fb66a2c8b0/gdown-5.2.2-py3-none-any.whl", hash = "sha256:e1ed2638abb931668725c79298900629b31e20f02b7c55a2685e9249edb51e09", size = 18630, upload-time = "2026-04-12T06:00:08.346Z" },
+]
+
+[[package]]
 name = "geographiclib"
 version = "2.1"
 source = { registry = "https://pypi.org/simple" }
@@ -3401,6 +3416,7 @@ dependencies = [
     { name = "plotly" },
     { name = "plotnine" },
     { name = "polars" },
+    { name = "ppi-python" },
     { name = "pre-commit" },
     { name = "pyarrow" },
     { name = "pydantic" },
@@ -3489,6 +3505,7 @@ requires-dist = [
     { name = "plotly" },
     { name = "plotnine" },
     { name = "polars" },
+    { name = "ppi-python" },
     { name = "pre-commit" },
     { name = "pyarrow" },
     { name = "pydantic" },
@@ -3900,6 +3917,23 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/a7/f3/c317b1bc6759d1ec343c25d5ebd376a07a2e1fd2bd04fdc07ce6b2a855c4/polars-1.8.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:67c1e448d6e38697650b22dd359f13c40b567c0b66686c8602e4367400e87801", size = 32548666, upload-time = "2024-09-24T20:09:28.469Z" },
     { url = "https://files.pythonhosted.org/packages/1d/df/5ccf44218728caecda9f555879b40fe4ab34ff629c81b9117a1107437fdc/polars-1.8.2-cp38-abi3-manylinux_2_24_aarch64.whl", hash = "sha256:570ee86b033dc5a6dbe2cb0df48522301642f304dda3da48f53d7488899a2206", size = 29187225, upload-time = "2024-09-24T20:09:32.1Z" },
     { url = "https://files.pythonhosted.org/packages/9c/45/77e4fda23368907c06bf70fc722de28d442c5087bbc8a60c29b8396750ea/polars-1.8.2-cp38-abi3-win_amd64.whl", hash = "sha256:ce1a1c1e2150ffcc44a5f1c461d738e1dcd95abbd0f210af0271c7ac0c9f7ef9", size = 32394690, upload-time = "2024-09-24T20:09:35.278Z" },
+]
+
+[[package]]
+name = "ppi-python"
+version = "0.2.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "gdown" },
+    { name = "numba" },
+    { name = "numpy" },
+    { name = "pandas" },
+    { name = "scikit-learn" },
+    { name = "statsmodels" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5b/c8/5813853b5cc52b62f3d9d5b60ab95704ac639bbc3e96eb56f1979f688bfc/ppi_python-0.2.3.tar.gz", hash = "sha256:93bf5a6d13d555b54aa32dbea1e8619e5014e72914a21e9d538d7207bbaac886", size = 36173, upload-time = "2024-12-22T04:27:05.4Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8a/42/754bd7edf25e1cfa8b47001d94d71a4966a0f23e98727029ba4c58123127/ppi_python-0.2.3-py3-none-any.whl", hash = "sha256:f20ea31f90af3339de0f4a48f556c281493e347f49a9fea3d0e164769fdf8b24", size = 40733, upload-time = "2024-12-22T04:27:03.262Z" },
 ]
 
 [[package]]
@@ -4336,6 +4370,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pysocks"
+version = "1.7.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz", hash = "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0", size = 284429, upload-time = "2019-09-20T02:07:35.714Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8d/59/b4572118e098ac8e46e399a1dd0f2d85403ce8bbaad9ec79373ed6badaf9/PySocks-1.7.1-py3-none-any.whl", hash = "sha256:2725bd0a9925919b9b51739eea5f9e2bae91e83288108a9ad338b2e3a4435ee5", size = 16725, upload-time = "2019-09-20T02:06:22.938Z" },
+]
+
+[[package]]
 name = "pytensor"
 version = "2.12.3"
 source = { registry = "https://pypi.org/simple" }
@@ -4621,6 +4664,11 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz", hash = "sha256:27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422", size = 135258, upload-time = "2025-06-09T16:43:07.34Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7c/e4/56027c4a6b4ae70ca9de302488c5ca95ad4a39e190093d6c1a8ace08341b/requests-2.32.4-py3-none-any.whl", hash = "sha256:27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c", size = 64847, upload-time = "2025-06-09T16:43:05.728Z" },
+]
+
+[package.optional-dependencies]
+socks = [
+    { name = "pysocks" },
 ]
 
 [[package]]
