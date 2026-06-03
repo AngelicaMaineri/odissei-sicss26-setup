@@ -14,6 +14,7 @@ factor-analyzer
 semopy
 lifelines
 bambi
+ppi-python
 
 # causal inference
 dowhy
