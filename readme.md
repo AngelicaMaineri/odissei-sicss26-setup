@@ -1,7 +1,23 @@
-This repository documents the standard software setup for Tinker SANE machines used at ODISSEI-SICSS 2026, including the Python and R environments and the LLM models served via Ollama.
+This repository documents the software setup for SANE machines used at ODISSEI-SICSS 2026, including the Python and R environments, as well as the LLM models served via Ollama.
 
-# Setup Instructions
-Follow the steps below to reproduce the Python and R environments and pull the required LLM models via [Ollama](https://ollama.com/).
+By following the instructions in this README, you can:
+
+- Install additional R packages in your SANE machine environment, ensuring you have the necessary tools for your analyses and projects.
+- Reproduce the exact software environment of SANE on your local machine, allowing you to develop and test code that will run seamlessly on SANE.
+
+# Install Additional R Packages (SANE Machines)
+The default R environment on SANE machines does not include the following packages, which are required for some of the analyses and projects you will be working on: `sf` `terra` `tidyterra` `lwgeom` `tmap` `leaflet` `mapview` `spdep` `spatialreg` `sfdep` `dsl`. To install these packages, follow the steps below:
+
+1. Navigate to `S:/scripts/install_extra_r_packages/` in your SANE machine.
+2. Open the `install_extra_r_packages.R` script in an R environment (e.g., RStudio).
+3. Run the script to install the required packages. 
+
+```
+If you need to install additional R packages beyond those listed above, you can ask your course instructors for assistance. They can update the "extra_r_packages_for_sane" folder, so that you can install them in your SANE machine by running the updated installation script.
+```
+
+# Reproduce the Software Environment on Your Local Machine
+Follow the steps below to reproduce the Python and R environments, as well as the required Ollama LLM models.
 
 ## Python 3.8.18 with uv
 
@@ -45,9 +61,9 @@ Follow the steps below to reproduce the Python and R environments and pull the r
     - MacOS (Intel): [Download](https://cran.r-project.org/bin/macosx/big-sur-x86_64/base/R-4.5.3-x86_64.pkg)
     - Windows: [Download](https://cran.r-project.org/bin/windows/base/old/4.5.3/R-4.5.3-win.exe)
 
-2. Install [RStudio](https://posit.co/download/rstudio-desktop/) (optional but recommended).
+2. Install [RStudio](https://posit.co/download/rstudio-desktop/).
 
-3. Open an R session in the project root and verify that `R 4.5.3` is the R version being used:
+3. In RStudio, open the this repository as a project, and verify that `R 4.5.3` is the R version being used:
    ```r
    R.version.string
    ```
@@ -64,53 +80,9 @@ Follow the steps below to reproduce the Python and R environments and pull the r
     renv::restore()
     ```
 
-    If no `renv.lock` exists yet (first-time machine setup), install the packages listed below and then snapshot:
-    ```r
-    # Install CRAN packages
-    required_cran_packages <- c(
-        "data.table",
-        "dplyr",
-        "ggplot2",
-        "readr",
-        "tidyr",
-        "stringr",
-        "lubridate",
-        "tibble",
-        "purrr",
-        "jsonlite",
-        "httr",
-        "DBI",
-        "RSQLite",
-        "cli",
-        "ellmer",
-        "irr",
-        "tidyverse",
-        "rmarkdown",
-        "devtools",
-        "gridExtra",
-        "rlang",
-        "here"
-    )
+    When asked `Do you want to proceed? [Y/n]:`, type `Y` and press Enter.
 
-    installed_packages <- rownames(installed.packages())
-    missing_packages <- setdiff(required_cran_packages, installed_packages)
-
-    if (length(missing_packages) > 0) {
-        install.packages(missing_packages, dependencies = TRUE)
-    } else {
-        message("All required packages are already installed.")
-    }
-
-    # Install dsl package from GitHub
-    if (!requireNamespace("dsl", quietly = TRUE)) {
-        devtools::install_github("naokiegami/dsl")
-    }
-
-    # Snapshot package versions into renv.lock
-    renv::snapshot()
-    ```
-
-## LLM models with Ollama
+## Local LLMs with Ollama
 
 > All commands in this section are run in a **terminal** (Terminal on macOS/Linux; Command Prompt or PowerShell on Windows).
 
@@ -156,7 +128,24 @@ Follow the steps below to reproduce the Python and R environments and pull the r
     ollama ps
     ```
 
-# How to Update Python dependencies
+# Package and Model Reference
+## Python Packages
+See file [requirements.in](./requirements.in).
+
+## R Packages
+- CRAN: `data.table` `tidyverse` `lubridate` `jsonlite` `httr` `DBI` `RSQLite` `cli` `ellmer` `irr` `rmarkdown` `renv` `devtools` `gridExtra` `rlang` `here` `sf` `terra` `tidyterra` `lwgeom` `tmap` `leaflet` `mapview` `spdep` `spatialreg` `sfdep`
+- Others: [`dsl`](https://naokiegami.com/dsl/)
+
+## Ollama Models
+- `qwen2.5:7b`
+- `qwen2.5:14b`
+- `qwen2.5-coder:7b`
+- `qwen2.5-coder:14b`
+- `gpt-oss:20b`
+
+# Additional Notes (for Instructors)
+## How to Update Python Dependencies
+### Step 1: Update SANE Setup
 1. Modify the `requirements.in` file
 To update the Python dependencies, edit the [`requirements.in`](./requirements.in) file in the project root. This file lists the top-level dependencies for the project. 
 
@@ -171,17 +160,26 @@ uv pip compile requirements.in  --python-version 3.8.18 --python-platform macos 
 uv pip compile requirements.in  --python-version 3.8.18 --python-platform windows --no-annotate --no-header -o requirements.txt
 ```
 
-# Package and Model Reference
-## Python packages
-See file [requirements.in](./requirements.in).
+The `requirements.txt` file is used by SURF to set up the Python environment in SANE automatically. Make sure to update it whenever you modify the `requirements.in` file. For more information, see SURF's [official documentation](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/109576466/Adding+Python+packages+to+Tinker+SANE). 
 
-## R packages
-- CRAN: `data.table`, `dplyr`, `ggplot2`, `readr`, `tidyr`, `stringr`, `lubridate`, `tibble`, `purrr`, `jsonlite`, `httr`, `DBI`, `RSQLite`, `cli`, `ellmer`, `irr`, `tidyverse`, `rmarkdown`, `renv`, `devtools`, `gridExtra`, `rlang`, `here`, `grf`, `estimatr`, `SuperLearner`, `arm`, `matrixcalc`
-- Others: [`dsl`](https://naokiegami.com/dsl/), which depends on `grf`, `estimatr`, `SuperLearner`, `arm`, and `matrixcalc`
+### Step 2: Update Local Environment
+1. For every new package you add to `requirements.in`, install it in your local Python environment using `uv add`:
+    ```bash
+    uv add [package-name]
+    ```
+2. After installing all the new packages, run `uv sync` to be sure that all the new dependencies are properly installed and the lock file is updated:
+    ```bash
+    uv sync
+    ```
+3. Commit and push the changes to the repository, so that others can restore the same environment.
 
-## Ollama models
-- `qwen2.5:7b`
-- `qwen2.5:14b`
-- `qwen2.5-coder:7b`
-- `qwen2.5-coder:14b`
-- `gpt-oss:20b`
+## How to Update R Dependencies
+### Step 1: Update SANE Setup
+1. Follow the official [SURF instructions](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/282134071/Adding+R+packages+to+Tinker+SANE).
+2. Update the "R Packages" section in this README with the new packages you have added.
+
+### Step 2: Update Local Environment
+1. Install the new packages in your local R environment.
+2. Add the new packages to the `packages.R` script.
+3. Run `renv::snapshot()` in the R console to update the `renv.lock` file with the new package versions.
+4. Commit and push the updated `renv.lock` file to the repository, so that others can restore the same environment.
