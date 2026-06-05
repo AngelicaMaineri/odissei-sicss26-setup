@@ -10,8 +10,9 @@ main_pkg_dir_name <- "downloaded_r_packages"
 main_pkg_dir_path <- here::here("extra_r_packages_for_sane", main_pkg_dir_name)
 cran_pkg_dir_path <- file.path(main_pkg_dir_path, "cran")
 source_pkg_dir_path <- file.path(main_pkg_dir_path, "source")
-dir.create(cran_pkg_dir_path, showWarnings = FALSE)
-dir.create(source_pkg_dir_path, showWarnings = FALSE)
+dir.create(main_pkg_dir_path)
+dir.create(cran_pkg_dir_path)
+dir.create(source_pkg_dir_path)
 
 ap <- available.packages(
   repos = "https://cloud.r-project.org",
@@ -35,9 +36,11 @@ download.packages(
   type = "win.binary"
 )
 
-# Download the `dsl` package from GitHub
+# Download the `dsl` package from GitHub and unzip it
 download.file(
   "https://github.com/naoki-egami/dsl/archive/refs/heads/master.zip",
   destfile = file.path(source_pkg_dir_path, "dsl.zip"),
   mode = "wb"
 )
+
+unzip(file.path(source_pkg_dir_path, "dsl.zip"), exdir = source_pkg_dir_path)
