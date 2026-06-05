@@ -1,3 +1,4 @@
+# SANE Software Setup for ODISSEI-SICSS 2026
 This repository documents the software setup for SANE machines used at ODISSEI-SICSS 2026, including the Python and R environments, as well as the LLM models served via Ollama.
 
 By following the instructions in this README, you can:
@@ -5,7 +6,7 @@ By following the instructions in this README, you can:
 - Install additional R packages in your SANE machine environment, ensuring you have the necessary tools for your analyses and projects.
 - Reproduce the exact software environment of SANE on your local machine, allowing you to develop and test code that will run seamlessly on SANE.
 
-# Install Additional R Packages (SANE Machines)
+## Install Extra R Packages (SANE Machines)
 The default R environment on SANE machines does not include the following packages, which are required for some of the analyses and projects you will be working on: `sf` `terra` `tidyterra` `lwgeom` `tmap` `leaflet` `mapview` `spdep` `spatialreg` `sfdep` `dsl`. To install these packages, follow the steps below:
 
 1. Navigate to `S:/scripts/install_extra_r_packages/` in your SANE machine.
@@ -16,10 +17,10 @@ The default R environment on SANE machines does not include the following packag
 If you need to install additional R packages beyond those listed above, you can ask your course instructors for assistance. They can update the "extra_r_packages_for_sane" folder, so that you can install them in your SANE machine by running the updated installation script.
 ```
 
-# Reproduce the Software Environment on Your Local Machine
+## Reproduce the Software Environment on Your Local Machine
 Follow the steps below to reproduce the Python and R environments, as well as the required Ollama LLM models.
 
-## Python 3.8.18 with uv
+### Python 3.8.18 with uv
 
 > All commands in this section are run in a **terminal** (Terminal on macOS; Command Prompt or PowerShell on Windows).
 
@@ -52,7 +53,7 @@ Follow the steps below to reproduce the Python and R environments, as well as th
     uv run jupyter lab
     ```
 
-## R 4.5.3 with renv
+### R 4.5.3 with renv
 
 > Steps 1–2 are GUI installers. Steps 3 onwards are run in the **R console** (e.g., RStudio or a terminal with `R` started).
 
@@ -82,7 +83,7 @@ Follow the steps below to reproduce the Python and R environments, as well as th
 
     When asked `Do you want to proceed? [Y/n]:`, type `Y` and press Enter.
 
-## Local LLMs with Ollama
+### Local LLMs with Ollama
 
 > All commands in this section are run in a **terminal** (Terminal on macOS/Linux; Command Prompt or PowerShell on Windows).
 
@@ -128,23 +129,22 @@ Follow the steps below to reproduce the Python and R environments, as well as th
     ollama ps
     ```
 
-# Package and Model Reference
-## Python Packages
+## Package and Model Reference
+### Python Packages
 See file [requirements.in](./requirements.in).
 
-## R Packages
+### R Packages
 - CRAN: `data.table` `tidyverse` `lubridate` `jsonlite` `httr` `DBI` `RSQLite` `cli` `ellmer` `irr` `rmarkdown` `renv` `devtools` `gridExtra` `rlang` `here` `sf` `terra` `tidyterra` `lwgeom` `tmap` `leaflet` `mapview` `spdep` `spatialreg` `sfdep`
 - Others: [`dsl`](https://naokiegami.com/dsl/)
 
-## Ollama Models
+### Ollama Models
 - `qwen2.5:7b`
 - `qwen2.5:14b`
 - `qwen2.5-coder:7b`
 - `qwen2.5-coder:14b`
 - `gpt-oss:20b`
 
-# Additional Notes (for Instructors)
-## How to Update Python Dependencies
+## How to Update Python Dependencies (for Instructors)
 ### Step 1: Update SANE Setup
 1. Modify the `requirements.in` file
 To update the Python dependencies, edit the [`requirements.in`](./requirements.in) file in the project root. This file lists the top-level dependencies for the project. 
@@ -173,7 +173,7 @@ The `requirements.txt` file is used by SURF to set up the Python environment in 
     ```
 3. Commit and push the changes to the repository, so that others can restore the same environment.
 
-## How to Update R Dependencies
+## How to Update R Dependencies (for Instructors)
 ### Step 1: Update SANE Setup
 1. Follow the official [SURF instructions](https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/282134071/Adding+R+packages+to+Tinker+SANE).
 2. Update the "R Packages" section in this README with the new packages you have added.
