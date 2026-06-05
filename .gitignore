@@ -23,6 +23,7 @@ build/
 renv/library/
 renv/staging/
 renv/sandbox/
+extra_r_packages_for_sane/downloaded_r_packages/
 
 # OS
 .DS_Store
